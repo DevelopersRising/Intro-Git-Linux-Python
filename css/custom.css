@@ -56,13 +56,13 @@ body {
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
-  text-transform: uppercase;
   text-shadow: none;
   word-wrap: break-word; }
 
 .reveal h1 {
   font-size: 1.5em;
   color: #01786E;
+  text-transform: uppercase;
 }
 
 .intro_h1 h1 {
@@ -76,13 +76,13 @@ body {
 }
 
 .reveal h2 {
-  font-size: 1.6em; }
+  font-size: 0.7em; }
 
 .reveal h3 {
-  font-size: 1.3em; }
+  font-size: 0.55em; }
 
 .reveal h4 {
-  font-size: 1em; }
+  font-size: .3em; }
 
 .reveal h1 {
   text-shadow: none; }

@@ -16,7 +16,7 @@
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="reveal.js-3.1.0/css/reveal.css">
-<link rel="stylesheet" href="css/custom.css" id="theme">
+<link rel="stylesheet" href="reveal.js-3.1.0/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -33,6 +33,29 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 <!--[if lt IE 9]>
 <script src="reveal.js-3.1.0/lib/js/html5shiv.js"></script>
 <![endif]-->
+
+<!-- Loading the mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
@@ -11722,11 +11745,9 @@ ul.typeahead-list > li > a {
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-html {
-  overflow-y: hidden;
-}
 .reveal {
-  font-size: 180%;
+  font-size: 160%;
+  overflow-y: scroll;
 }
 .reveal pre {
   width: inherit;
@@ -11751,7 +11772,6 @@ html {
 .reveal .slides {
   text-align: left;
 }
-
 .reveal.fade {
   opacity: 1;
 }
@@ -11780,20 +11800,23 @@ div.output_prompt {
   /* 5px right shift to account for margin in parent container */
   margin: 5px 5px 0 0;
 }
+div.text_cell.rendered .rendered_html {
+  /* The H1 height seems miscalculated, we are just hidding the scrollbar */
+  overflow-y: hidden;
+}
+a.anchor-link {
+  /* There is still an anchor, we are only hidding it */
+  display: none;
+}
 .rendered_html p {
   text-align: inherit;
 }
 </style>
 
-<!-- Add favicon -->
-<link rel="shortcut icon" type="image/ico" href="favicon.ico" />
-
-<!-- Additional imports for plugins -->
-<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
+<!-- Custom stylesheet, it must be in the same directory as the html file -->
+<link rel="stylesheet" href="custom.css">
 
 </head>
-
-
 
 
 <body>
@@ -11832,12 +11855,12 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Contents">Contents<a class="anchor-link" href="#Contents">&#182;</a></h1><h2 id="--Introduction">- Introduction<a class="anchor-link" href="#--Introduction">&#182;</a></h2><ul>
+<h1 id="Contents">Contents<a class="anchor-link" href="#Contents">&#182;</a></h1><h2 id="*-Introduction">* Introduction<a class="anchor-link" href="#*-Introduction">&#182;</a></h2><ul>
 <li>Python</li>
 <li>Linux</li>
 <li>Git  </li>
 </ul>
-<h2 id="--Worked-out-examples">- Worked out examples<a class="anchor-link" href="#--Worked-out-examples">&#182;</a></h2><h2 id="--Q&amp;A,-Feedback">- Q&amp;A, Feedback<a class="anchor-link" href="#--Q&amp;A,-Feedback">&#182;</a></h2>
+<h2 id="*-Tutorial-with-worked-out-examples">* Tutorial with worked out examples<a class="anchor-link" href="#*-Tutorial-with-worked-out-examples">&#182;</a></h2><h2 id="*-Q&amp;A,-Feedback">* Q&amp;A, Feedback<a class="anchor-link" href="#*-Q&amp;A,-Feedback">&#182;</a></h2>
 </div>
 </div>
 </div></section></section><section><section>
@@ -11846,28 +11869,28 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p><center> <img src="http://www.topnewsage.com/wp-content/uploads/Top-image-232x300.png" width="150px" style="display: inline-block; margin-top: 5px" align="middle"><center></p>
+<h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><h2 id="Why-Python:">Why Python:<a class="anchor-link" href="#Why-Python:">&#182;</a></h2><p><center> <img src="http://www.topnewsage.com/wp-content/uploads/Top-image-232x300.png" width="270px" style="display: inline-block; margin-top: 5px" align="middle"><center></p>
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Why-you-should-learn-Python-now!">Why you should learn <strong>Python</strong> now!<a class="anchor-link" href="#Why-you-should-learn-Python-now!">&#182;</a></h3><p><center><img src="https://qph.ec.quoracdn.net/main-qimg-f25f4b589738d457b4ec495d23e2866a-c" width="380px" style="display: inline-block; margin-top: 5px; padding-right: 40px">
-<img src="http://adtmag.com/articles/2015/01/08/~/media/ECG/adtmag/Images/2014/01/pypl_2014.png" width="380px" style="display: inline-block; margin-top: 5px"><center></p>
+<p><center><img src="https://qph.ec.quoracdn.net/main-qimg-f25f4b589738d457b4ec495d23e2866a-c" width="410px" style="display: inline-block; margin-top: 5px; padding-right: 40px">
+<img src="http://adtmag.com/articles/2015/01/08/~/media/ECG/adtmag/Images/2014/01/pypl_2014.png" width="350px" style="display: inline-block; margin-top: 5px"><center></p>
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><h3 id="Why-Linux:">Why Linux:<a class="anchor-link" href="#Why-Linux:">&#182;</a></h3><ul>
+<h2 id="Why-Linux:">Why Linux:<a class="anchor-link" href="#Why-Linux:">&#182;</a></h2><ul>
 <li>Because everyone cannot afford Windows or MacOS</li>
 <li>Its free, Open source</li>
 <li>No insane license restrictions</li>
@@ -11876,13 +11899,13 @@ div.output_prompt {
 
 </div>
 </div>
-</div><div class="fragment">
+</div></section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Why-Git:">Why Git:<a class="anchor-link" href="#Why-Git:">&#182;</a></h3><p>If you have been saving file like this all your life</p>
+<h2 id="Why-Git:">Why Git:<a class="anchor-link" href="#Why-Git:">&#182;</a></h2><p>If you have been saving file like this all your life</p>
 <ul>
 <li>myfile_version1.txt</li>
 <li>myfile_version2.txt</li>
@@ -11898,18 +11921,37 @@ div.output_prompt {
 
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><h3 id="What-is-Git?">What is Git?<a class="anchor-link" href="#What-is-Git?">&#182;</a></h3><blockquote><ul>
+<h3 id="What-is-Git?">What is Git?<a class="anchor-link" href="#What-is-Git?">&#182;</a></h3><blockquote><ul>
 <li>Git is a <strong>version control</strong> system for tracking changes in computer files and coordinating work on those files among multiple people. </li>
 <li>It is primarily used for <strong>source code management</strong> in software development, but it can be used to keep track of changes in any set of files.</li>
 </ul>
 </blockquote>
-<h3 id="The-three-States-in-Git">The three States in Git<a class="anchor-link" href="#The-three-States-in-Git">&#182;</a></h3><p><center><img src="https://git-scm.com/book/en/v2/images/areas.png" width="500px" style="display: inline-block; margin-top: 5px; padding-right: 40px"></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="The-three-States-in-Git">The three States in Git<a class="anchor-link" href="#The-three-States-in-Git">&#182;</a></h3><p><center><img src="https://git-scm.com/book/en/v2/images/areas.png" width="750px" style="display: inline-block; margin-top: 5px; padding-right: 40px"></p>
+
+</div>
+</div>
+</div></section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Recording-Changes-to-the-Repository">Recording Changes to the Repository<a class="anchor-link" href="#Recording-Changes-to-the-Repository">&#182;</a></h3><p><center><img src="https://git-scm.com/book/en/v2/images/lifecycle.png" width="1950px" style="display: inline-block; margin-top: 5px; padding-right: 40px"></p>
 
 </div>
 </div>
@@ -11919,23 +11961,19 @@ div.output_prompt {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Recording-Changes-to-the-Repository">Recording Changes to the Repository<a class="anchor-link" href="#Recording-Changes-to-the-Repository">&#182;</a></h3><p><center><img src="https://git-scm.com/book/en/v2/images/lifecycle.png" width="680px" style="display: inline-block; margin-top: 5px; padding-right: 40px"></p>
-
-</div>
-</div>
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Let's-get-started">Let's get started<a class="anchor-link" href="#Let's-get-started">&#182;</a></h1><h2 id="First-things-first!-Git-needs-to-know-you.">First things first! Git needs to know you.<a class="anchor-link" href="#First-things-first!-Git-needs-to-know-you.">&#182;</a></h2><blockquote><p>&lt;font color="blue" size = 3&gt; \$ git config --global user.name "Your Name"</p>
-<p>\$ git config --global user.email "your_email@whatever.com"</p>
+<h1 id="Let's-get-started!">Let's get started!<a class="anchor-link" href="#Let's-get-started!">&#182;</a></h1><p>First things first! Git needs to know you.</p>
+<blockquote><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+git config --global user.email <span class="s2">&quot;your_email@whatever.com&quot;</span>
+</pre></div>
 </blockquote>
-<h3 id="Customary-&quot;Hello,-World!&quot;-program.-Execute">Customary "Hello, World!" program. Execute<a class="anchor-link" href="#Customary-&quot;Hello,-World!&quot;-program.-Execute">&#182;</a></h3><blockquote><p>&lt;font color="blue" size = 3&gt; \$ mkdir hello</p>
-<p>\$ cd hello</p>
+<p>Customary "Hello, World!" program. Execute the commad</p>
+<blockquote><div class="highlight"><pre><span></span>mkdir hello
+<span class="nb">cd</span> hello
+</pre></div>
 </blockquote>
-<h3 id="Open-an-file,-type-the-following-in-it,-and-save-it.">Open an file, type the following in it, and save it.<a class="anchor-link" href="#Open-an-file,-type-the-following-in-it,-and-save-it.">&#182;</a></h3><blockquote><p>&lt;font color="blue" size = 3&gt; \$ print "Hello, World!"</p>
+<p>Open an file, type the following in it, and save it as "hello.py".</p>
+<blockquote><div class="highlight"><pre><span></span><span class="k">print</span> <span class="s2">&quot;Hello, World!&quot;</span>
+</pre></div>
 </blockquote>
 
 </div>
@@ -11997,57 +12035,6 @@ require(
 </script>
 
 </body>
-
-
-
-<script>
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "reveal.js-3.1.0/lib/js/head.min.js",
-      "reveal.js-3.1.0/js/reveal.js"
-    ],
-    function(head, Reveal){
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            slideNumber: true,
-            theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-            transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
-            // Optional libraries used to extend on reveal.js
-            dependencies: [
-                { src: "reveal.js-3.1.0/lib/js/classList.js",
-                  condition: function() { return !document.body.classList; } },
-                { src: "reveal.js-3.1.0/plugin/notes/notes.js",
-                  async: true,
-                  condition: function() { return !!document.body.classList; } },
-                { src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize(
-                  // Change footer here
-          '© 2017 Bonny Dongre', 'rgba(255,255,255,0.5)'
-          ); } }
-            ]
-        });
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-        Reveal.addEventListener('slidechanged', update);
-        Reveal.addEventListener('fragmentshown', update);
-        Reveal.addEventListener('fragmenthidden', update);
-        var update_scroll = function(event){
-          $(".reveal").scrollTop(0);
-        };
-        Reveal.addEventListener('slidechanged', update_scroll);
-    }
-);
-</script>
 
 
 </html>
