@@ -51,14 +51,14 @@ html {
   overflow-y: hidden;
 }
 .reveal {
-  font-size: 160%;
+  font-size: 60%;
 }
 .reveal pre {
   width: inherit;
   padding: 0.4em;
   margin: 0px;
   font-family: monospace, sans-serif;
-  font-size: 80%;
+  font-size: 70%;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
 }
 .reveal pre code {
@@ -100,6 +100,7 @@ div.prompt {
 div.output_area pre {
   font-family: monospace, sans-serif;
   font-size: 80%;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0);
 }
 div.output_prompt {
   /* 5px right shift to account for margin in parent container */

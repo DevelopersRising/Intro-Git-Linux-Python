@@ -15,8 +15,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <!-- General and theme style sheets -->
-<link rel="stylesheet" href="reveal.js-3.1.0/css/reveal.css">
-<link rel="stylesheet" href="reveal.js-3.1.0/css/theme/simple.css" id="theme">
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -24,14 +24,14 @@ if( window.location.search.match( /print-pdf/gi ) ) {
         var link = document.createElement( 'link' );
         link.rel = 'stylesheet';
         link.type = 'text/css';
-        link.href = 'reveal.js-3.1.0/css/print/pdf.css';
+        link.href = 'reveal.js/css/print/pdf.css';
         document.getElementsByTagName( 'head' )[0].appendChild( link );
 }
 
 </script>
 
 <!--[if lt IE 9]>
-<script src="reveal.js-3.1.0/lib/js/html5shiv.js"></script>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
 <![endif]-->
 
 <!-- Loading the mathjax macro -->
@@ -11860,7 +11860,7 @@ a.anchor-link {
 <li>Linux</li>
 <li>Git  </li>
 </ul>
-<h2 id="*-Tutorial-with-worked-out-examples">* Tutorial with worked out examples<a class="anchor-link" href="#*-Tutorial-with-worked-out-examples">&#182;</a></h2><h2 id="*-Q&amp;A,-Feedback">* Q&amp;A, Feedback<a class="anchor-link" href="#*-Q&amp;A,-Feedback">&#182;</a></h2>
+<h2 id="*-Tutorial-with-worked-out-examples">* Tutorial with worked out examples<a class="anchor-link" href="#*-Tutorial-with-worked-out-examples">&#182;</a></h2><h2 id="*-Outlook">* Outlook<a class="anchor-link" href="#*-Outlook">&#182;</a></h2><h2 id="*-Q&amp;A,-Feedback">* Q&amp;A, Feedback<a class="anchor-link" href="#*-Q&amp;A,-Feedback">&#182;</a></h2>
 </div>
 </div>
 </div></section></section><section><section>
@@ -11961,7 +11961,7 @@ a.anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Let's-get-started!">Let's get started!<a class="anchor-link" href="#Let's-get-started!">&#182;</a></h1><p>First things first! Git needs to know you.</p>
+<h2 id="Let's-get-started!">Let's get started!<a class="anchor-link" href="#Let's-get-started!">&#182;</a></h2><p>First things first! Git needs to know you.</p>
 <blockquote><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
 git config --global user.email <span class="s2">&quot;your_email@whatever.com&quot;</span>
 </pre></div>
@@ -11971,11 +11971,92 @@ git config --global user.email <span class="s2">&quot;your_email@whatever.com&qu
 <span class="nb">cd</span> hello
 </pre></div>
 </blockquote>
-<p>Open an file, type the following in it, and save it as "hello.py".</p>
+<p>Open a file, type the following in it, and save it as "hello.py".</p>
 <blockquote><div class="highlight"><pre><span></span><span class="k">print</span> <span class="s2">&quot;Hello, World!&quot;</span>
 </pre></div>
 </blockquote>
 
+</div>
+</div>
+</div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Intialize Git.</p>
+<blockquote><div class="highlight"><pre><span></span>git init
+</pre></div>
+</blockquote>
+<p>Check Git status</p>
+<blockquote><div class="highlight"><pre><span></span>git status
+</pre></div>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1">#The output should be:</span>
+<span class="o">!</span>mkdir hello
+<span class="o">!</span><span class="nb">cd</span> hello
+<span class="o">!</span>git init
+<span class="o">!</span>git status
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Reinitialized existing Git repository in C:/Users/bonny/Desktop/meetup_180817/.git/
+On branch master
+Your branch is up-to-date with &#39;origin/master&#39;.
+
+Changes not staged for commit:
+  (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
+  (use &#34;git checkout -- &lt;file&gt;...&#34; to discard changes in working directory)
+
+	modified:   .ipynb_checkpoints/FreeCodeCamp_presentation-checkpoint.ipynb
+	modified:   FreeCodeCamp_presentation.ipynb
+	modified:   FreeCodeCamp_presentation.slides.html
+	modified:   jupyter_template.tpl
+
+Untracked files:
+  (use &#34;git add &lt;file&gt;...&#34; to include in what will be committed)
+
+	FreeCodeCamp_presentation_new.pdf
+
+no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
 </div>
 </div>
 </div></section></section>
@@ -11991,8 +12072,8 @@ require(
       waitSeconds: 15
     },
     [
-      "reveal.js-3.1.0/lib/js/head.min.js",
-      "reveal.js-3.1.0/js/reveal.js"
+      "reveal.js/lib/js/head.min.js",
+      "reveal.js/js/reveal.js"
     ],
 
     function(head, Reveal){
@@ -12008,9 +12089,9 @@ require(
 
             // Optional libraries used to extend on reveal.js
             dependencies: [
-                { src: "reveal.js-3.1.0/lib/js/classList.js",
+                { src: "reveal.js/lib/js/classList.js",
                   condition: function() { return !document.body.classList; } },
-                { src: "reveal.js-3.1.0/plugin/notes/notes.js",
+                { src: "reveal.js/plugin/notes/notes.js",
                   async: true,
                   condition: function() { return !!document.body.classList; } }
             ]
